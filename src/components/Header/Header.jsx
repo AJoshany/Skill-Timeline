@@ -12,8 +12,8 @@ export default function Header() {
                         <ul className="flex items-center gap-8 topNav__list">
                             <li className="topNav__list__item active"><Link to="/">Home</Link></li>
                             <li className="topNav__list__item"><Link to="/dashboard">Dashboard</Link></li>
-                            <li className="topNav__list__item"><Link to="/">About</Link></li>
-                            <li className="topNav__list__item"><Link to="/">Contact Us</Link></li>
+                            <li className="topNav__list__item"><Link to="/about">About</Link></li>
+                            <li className="topNav__list__item"><Link to="/contact-us">Contact Us</Link></li>
                         </ul>
                     </nav>
                     <div className="text-2xl font-extrabold tracking-[15px] text-[var(--color-primary)] logo hidden md:block">Skill Timeline</div>
