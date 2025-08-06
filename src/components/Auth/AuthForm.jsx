@@ -46,7 +46,7 @@ export default function AuthForm() {
         </h2>
         <form
           onSubmit={handleSubmit(submitHandler)}
-          className="flex flex-col justify-between h-full gap-4 font-bold text-gray-400"
+          className="flex flex-col grow justify-between h-full gap-4 font-bold text-gray-400"
         >
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-1">
