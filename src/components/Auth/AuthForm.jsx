@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { supabase } from "../../supabase";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router";
@@ -27,15 +26,14 @@ export default function AuthForm() {
       if (error) setError(error.message);
       else {
         alert("You have successfully logged in");
-        navigate('/dashboard');
+        navigate("/dashboard");
       }
-
     } else {
       const { error } = await registerUser(email, password);
       if (error) setError(error.message);
       else {
         alert("Successful registration");
-        navigate('/dashboard');
+        navigate("/dashboard");
       }
     }
   };
@@ -71,7 +69,7 @@ export default function AuthForm() {
               <label htmlFor="pass-input">Password</label>
               <div className="relative w-full">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   placeholder="Enter Your Password"
                   className="w-full p-2 font-medium text-white border-gray-500 border-1 rounded-xl text-md"
                   id="pass-input"
@@ -87,7 +85,7 @@ export default function AuthForm() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute text-xl text-gray-500 transform -translate-y-1/2 opacity-50 cursor-pointer right-3 top-1/2 hover:text-gray-700"
                 >
-                  {showPassword ? '🙈' : '👁️'}
+                  {showPassword ? "🙈" : "👁️"}
                 </span>
               </div>
               {errors.password && (
