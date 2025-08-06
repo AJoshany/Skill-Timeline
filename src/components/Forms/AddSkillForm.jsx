@@ -30,7 +30,7 @@ export default function AddSkillForm({ onSkillAdded }) {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="flex flex-col max-w-md gap-3 p-4 text-white bg-gray-800 rounded-lg"
+      className="flex flex-col w-full max-w-md gap-3 p-4 text-white bg-gray-800 rounded-lg "
     >
       <div>
         <label className="block mb-1">Skill Title</label>

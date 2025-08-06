@@ -7,7 +7,7 @@ function App() {
   let router = useRoutes(routes);
   return (
     <>
-      <div className="w-full h-full flex flex-col justify-start items-center gap-20 text-(--color-white)">
+      <div className="w-full h-full flex flex-col justify-start items-center gap-5 md:gap-15 text-(--color-white)">
         <Header />
         <div className="container flex flex-col items-center justify-center gap-3 app-main ">
           {router}
