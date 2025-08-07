@@ -33,7 +33,7 @@ export async function updateSkill(id, updates) {
   const { data, error } = await supabase
     .from("skills")
     .update(updates)
-    .eq("id", 1);
+    .eq("id", id);
 
   if (error) throw error;
   return data;
