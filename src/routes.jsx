@@ -5,6 +5,7 @@ import About from "./pages/About/About"
 import ContactUs from "./pages/ContactUs/ContactUs"
 import Home from "./pages/Home/Home"
 import PublicProfile from "./pages/PublicProfile/PublicProfile";
+import Setting from "./pages/Dashboard/Setting";
 let routes = [
   { path: "/signup", element: <AuthForm /> },
   { path: "/login", element: <AuthForm /> },
@@ -12,6 +13,7 @@ let routes = [
   { path: "/", element: <Home /> },
   { path: "/contact-us", element: <ContactUs /> },
   { path: "/users/:username", element: <PublicProfile /> },
+  { path: "/setting", element: <Setting /> },
 
   {
     path: "/dashboard",

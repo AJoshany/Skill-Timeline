@@ -6,6 +6,7 @@ export async function getSkills() {
     .select("*")
     .order("start_date", { ascending: true });
 
+
   if (error) throw error;
   return data;
 }

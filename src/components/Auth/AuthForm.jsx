@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router";
+import { setProfile } from "../../services/profileService";
 
 export default function AuthForm() {
   const { login, register: registerUser } = useAuth();
@@ -26,14 +27,14 @@ export default function AuthForm() {
       if (error) setError(error.message);
       else {
         alert("You have successfully logged in");
-        navigate("/dashboard");
+        navigate("/setting");
       }
     } else {
       const { error } = await registerUser(email, password);
       if (error) setError(error.message);
       else {
         alert("Successful registration");
-        navigate("/dashboard");
+        navigate("/setting");
       }
     }
   };

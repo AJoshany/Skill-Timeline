@@ -3,11 +3,14 @@ import { useAuth } from "../../hooks/useAuth";
 import { getSkills, deleteSkill } from "../../services/skillsService";
 import AddSkillForm from "../../components/Forms/AddSkillForm";
 import EditSkillModal from "../../components/Modals/EditSkillModal";
+import { useRoutes } from "react-router";
+import Setting from "./Setting";
 export default function Dashboard() {
   const { logout, user } = useAuth();
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingSkill, setEditingSkill] = useState(null);
+
 
   async function fetchSkills() {
     try {
