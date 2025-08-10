@@ -1,6 +1,5 @@
-import { data, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { supabase } from "../../supabase";
 import { getSkills } from "../../services/skillsService";
 import { getProfile } from "../../services/profileService";

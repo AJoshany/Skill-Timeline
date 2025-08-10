@@ -4,6 +4,7 @@ import { updateSkill } from "../../services/skillsService";
 export default function EditSkillModal({ skill, onClose, OnSkillUpdated }) {
   const [title, setTitle] = useState(skill.title);
   const [level, setLevel] = useState(skill.level);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();

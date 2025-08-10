@@ -4,7 +4,7 @@ import { getSkills, deleteSkill } from "../../services/skillsService";
 import AddSkillForm from "../../components/Forms/AddSkillForm";
 import EditSkillModal from "../../components/Modals/EditSkillModal";
 import { useRoutes } from "react-router";
-import Setting from "./Setting";
+import Setting from "./SignUpSetting";
 export default function Dashboard() {
   const { logout, user } = useAuth();
   const [skills, setSkills] = useState([]);
