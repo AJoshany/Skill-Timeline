@@ -8,24 +8,28 @@ export default function PublicProfile() {
   const { username } = useParams();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [userSkills, setUserSkills] = useState(null)
-
+  const [userSkills, setUserSkills] = useState(null);
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      let data = await getProfile(username)
-      setUserData(Array.isArray(data) ? data : [])
-    }
+    const fetchData = async () => {
+      setLoading(true);
 
-    const fetchSkills = async () => {
-      let data = await getSkills()
-      setUserSkills(Array.isArray(data) ? data : [])
-    }
+      try {
+        const [profileData, skillsData] = await Promise.all([
+          getProfile(username),
+          getSkills(),
+        ]);
 
-    fetchProfile()
-    fetchSkills()
-    setLoading(false)
+        setUserData(Array.isArray(profileData) ? profileData : []);
+        setUserSkills(Array.isArray(skillsData) ? skillsData : []);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchData();
   }, [username]);
 
   if (loading) return <p>Loading...</p>;

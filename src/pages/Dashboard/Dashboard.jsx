@@ -3,14 +3,16 @@ import { useAuth } from "../../hooks/useAuth";
 import { getSkills, deleteSkill } from "../../services/skillsService";
 import AddSkillForm from "../../components/Forms/AddSkillForm";
 import EditSkillModal from "../../components/Modals/EditSkillModal";
-import { useRoutes } from "react-router";
+import { useNavigate, useRoutes } from "react-router";
 import Setting from "./SignUpSetting";
+import { getProfileById } from "../../services/profileService";
 export default function Dashboard() {
   const { logout, user } = useAuth();
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingSkill, setEditingSkill] = useState(null);
 
+  const navigate = useNavigate();
 
   async function fetchSkills() {
     try {
@@ -26,6 +28,17 @@ export default function Dashboard() {
   useEffect(() => {
     fetchSkills();
   }, []);
+
+  const getUserProfile = async (user) => {
+    const data = await getProfileById(user.id);
+    return data;
+  };
+
+  const handleShowPublicProfile = async () => {
+    const userProfile = await getUserProfile(user);
+    const username = userProfile[0].username;
+    navigate(`/users/${username}`);
+  };
 
   const handleSkillAdded = (updatedSkills) => {
     setSkills(updatedSkills);
@@ -91,6 +104,7 @@ export default function Dashboard() {
       </div>
 
       <button onClick={logout}>logout</button>
+      <button onClick={handleShowPublicProfile}>Go To Public Profile</button>
       {editingSkill && (
         <EditSkillModal
           skill={editingSkill}

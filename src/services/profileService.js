@@ -24,7 +24,7 @@ export async function getProfile(username) {
     .select("*")
     .eq("username", username);
 
-  if (!data || []) return false;
+  // if (!data[0] || []) return false;
 
   if (error) throw error;
   return data;
